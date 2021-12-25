@@ -20,6 +20,7 @@ public class SpringBootJavaResTfulApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        /*
         ListDataModel listDataModel = new ListDataModel();
         listDataModel.setFirstName("Gebi");
         listDataModel.setLastName("Beshir");
@@ -31,5 +32,6 @@ public class SpringBootJavaResTfulApiApplication implements CommandLineRunner {
         listDataModel1.setLastName("Beshir");
         listDataModel1.setEmailId("kald@gmgm.com");
         listDataRepository.save(listDataModel1);
+         */
     }
 }
