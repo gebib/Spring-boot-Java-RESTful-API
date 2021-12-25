@@ -6,10 +6,10 @@ import javax.persistence.*;
 
 //using JPA annotations
 @Entity //make class a JPA entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "data_model")
+public class ListDataModel {
 
-    public Employee() {
+    public ListDataModel() {
     }
 
     @Id
@@ -25,7 +25,7 @@ public class Employee {
     @Column(name = "email_id")
     private String emailId;
 
-    public Employee(long id, String firstName, String lastName, String emailId) {
+    public ListDataModel(long id, String firstName, String lastName, String emailId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

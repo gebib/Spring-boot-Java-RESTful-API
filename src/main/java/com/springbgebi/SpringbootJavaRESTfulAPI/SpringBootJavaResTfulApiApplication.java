@@ -1,7 +1,7 @@
 package com.springbgebi.SpringbootJavaRESTfulAPI;
 
-import com.springbgebi.SpringbootJavaRESTfulAPI.model.Employee;
-import com.springbgebi.SpringbootJavaRESTfulAPI.repository.EmployeeRepository;
+import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListDataModel;
+import com.springbgebi.SpringbootJavaRESTfulAPI.repository.ListDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,20 +16,20 @@ public class SpringBootJavaResTfulApiApplication implements CommandLineRunner {
 
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private ListDataRepository listDataRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        Employee employee = new Employee();
-        employee.setFirstName("Gebi");
-        employee.setLastName("Beshir");
-        employee.setEmailId("gebi@gmgm.com");
-        employeeRepository.save(employee);
+        ListDataModel listDataModel = new ListDataModel();
+        listDataModel.setFirstName("Gebi");
+        listDataModel.setLastName("Beshir");
+        listDataModel.setEmailId("gebi@gmgm.com");
+        listDataRepository.save(listDataModel);
 
-        Employee employee1 = new Employee();
-        employee1.setFirstName("Kalid");
-        employee1.setLastName("Beshir");
-        employee1.setEmailId("kald@gmgm.com");
-        employeeRepository.save(employee1);
+        ListDataModel listDataModel1 = new ListDataModel();
+        listDataModel1.setFirstName("Kalid");
+        listDataModel1.setLastName("Beshir");
+        listDataModel1.setEmailId("kald@gmgm.com");
+        listDataRepository.save(listDataModel1);
     }
 }
