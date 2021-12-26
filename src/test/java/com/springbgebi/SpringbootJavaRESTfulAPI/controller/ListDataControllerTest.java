@@ -1,12 +1,13 @@
 package com.springbgebi.SpringbootJavaRESTfulAPI.controller;
 
-import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListDataModel;
+import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListData;
 import com.springbgebi.SpringbootJavaRESTfulAPI.repository.ListDataRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,18 +27,27 @@ class ListDataControllerTest {
 
     @Test
     void testGetAllData() {
-        List<ListDataModel> listDataModelListInDb = listDataRepository.findAll();
+        List<ListData> listDataModelListInDb = listDataRepository.findAll();
         assertThat(listDataModelListInDb).size().isGreaterThan(0);
     }
 
+    //also covers for testGetDataById
     @Test
-    void testCreateListData() {
-        ListDataModel listDataModel = new ListDataModel();
-        listDataModel.setId(12345678L);
-        listDataModel.setFirstName("test_FirstName");
-        listDataModel.setLastName("test_LastName");
-        listDataModel.setEmailId("test_email@gmgm.com");
-        listDataRepository.save(listDataModel);
-        assertNotNull(listDataRepository.findById(12345678L));
+    void testCreateNewData() {
+        String uid1 = UUID.randomUUID().toString();
+        String uid2 = UUID.randomUUID().toString();
+        String uid3 = UUID.randomUUID().toString() + "@test.com";
+        long id = listDataRepository.findAll().size();
+
+        ListData listData = new ListData();
+        listData.setFirstName(uid1);
+        listData.setLastName(uid2);
+        listData.setEmailId(uid3);
+        listDataRepository.save(listData);
+
+        ListData returnedData = listDataRepository.findById(id + 1).get();
+        assertEquals(returnedData.getFirstName(), uid1);
+        assertEquals(returnedData.getLastName(), uid2);
+        assertEquals(returnedData.getEmailId(), uid3);
     }
 }

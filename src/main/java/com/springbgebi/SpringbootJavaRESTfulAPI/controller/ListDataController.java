@@ -1,8 +1,10 @@
 package com.springbgebi.SpringbootJavaRESTfulAPI.controller;
 
-import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListDataModel;
+import com.springbgebi.SpringbootJavaRESTfulAPI.exception.ResourceNotFoundException;
+import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListData;
 import com.springbgebi.SpringbootJavaRESTfulAPI.repository.ListDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,18 +26,25 @@ public class ListDataController {
         this.listDataRepository = listDataRepository;
     }
 
+    //test
+    public String testMethod(String helloString) {
+        return helloString + " World";
+    }
+
     @GetMapping
-    public List<ListDataModel> getAllData() {
+    public List<ListData> getAllData() {
         return listDataRepository.findAll();
     }
 
     @PostMapping
-    public ListDataModel createListData(@RequestBody ListDataModel listDataModel) {
-        return listDataRepository.save(listDataModel);
+    public ListData createNewData(@RequestBody ListData listData) {
+        return listDataRepository.save(listData);
     }
 
-    //test
-    public String testMethod(String helloString) {
-        return helloString + " World";
+    @GetMapping("{id}")
+    public ResponseEntity<ListData> getDataById(@PathVariable long id) {
+        ListData listData = listDataRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Data with id: " + id + ""));
+        return ResponseEntity.ok(listData);
     }
 }

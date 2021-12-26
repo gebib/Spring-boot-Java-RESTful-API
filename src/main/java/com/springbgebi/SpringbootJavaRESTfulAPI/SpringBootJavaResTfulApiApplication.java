@@ -1,6 +1,5 @@
 package com.springbgebi.SpringbootJavaRESTfulAPI;
 
-import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListDataModel;
 import com.springbgebi.SpringbootJavaRESTfulAPI.repository.ListDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -7,9 +7,9 @@ import javax.persistence.*;
 //using JPA annotations
 @Entity //make class a JPA entity
 @Table(name = "data_model")
-public class ListDataModel {
+public class ListData {
 
-    public ListDataModel() {
+    public ListData() {
     }
 
     @Id
@@ -25,7 +25,7 @@ public class ListDataModel {
     @Column(name = "email_id")
     private String emailId;
 
-    public ListDataModel(long id, String firstName, String lastName, String emailId) {
+    public ListData(long id, String firstName, String lastName, String emailId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
