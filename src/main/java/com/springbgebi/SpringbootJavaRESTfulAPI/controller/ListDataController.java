@@ -5,6 +5,7 @@ import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListData;
 import com.springbgebi.SpringbootJavaRESTfulAPI.repository.ListDataRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,16 +48,26 @@ public class ListDataController {
         return ResponseEntity.ok(listData);
     }
 
-    //@Request body => convert from JSON to JavaOBJect.
+    //Update data: @Request body => convert from JSON to JavaOBJect.
     @PutMapping("{id}")
     public ResponseEntity<ListData> updateDataById(@PathVariable long id, @RequestBody ListData updatedListData) {
         ListData oldListData = listDataRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Data with id: " + id + " not found for updating."));
+
         oldListData.setFirstName(updatedListData.getFirstName());
         oldListData.setLastName(updatedListData.getLastName());
         oldListData.setEmailId(updatedListData.getEmailId());
+        listDataRepository.save(oldListData);
 
-        listDataRepository.save(updatedListData);
         return ResponseEntity.ok(oldListData);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<HttpStatus> deleteDataById(@PathVariable long id) {
+        ListData listData = listDataRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Data with id: " + id + " not found for deletion."));
+        listDataRepository.delete(listData);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

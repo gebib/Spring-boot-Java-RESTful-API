@@ -4,6 +4,7 @@ import com.springbgebi.SpringbootJavaRESTfulAPI.model.ListData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -76,5 +77,16 @@ class ListDataControllerTest {
         String newEmail = newDataValues.getBody().getEmailId();
 
         assertTrue(!oldFname.equals(newFname) && !oldLname.equals(newLname) && !oldEmail.equals(newEmail));
+    }
+
+    @Test
+    void deleteDataById() {
+        //check database has minimum 1 entry: for testing purpose
+        long id = listDataController.getAllData().size();
+        assertTrue(id >= 1);
+
+        ResponseEntity<HttpStatus> deleteResponse = listDataController.deleteDataById(id);
+        assertEquals(204, deleteResponse.getStatusCode().value());
+
     }
 }
