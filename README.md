@@ -40,7 +40,7 @@ Sql Database connection configuration is in `application.properties` configurati
          "lastName": "Martin",
          "emailId": "johnmart@example.com"
      }
- ![image](https://user-images.githubusercontent.com/9350798/147561387-4b38ae2a-ef18-4e64-a8d6-42efe121a274.png)
+ ![image](https://user-images.githubusercontent.com/9350798/147561567-e09b8061-cb13-4cc5-802b-574de19bb7da.png)
 #### Reference Documentation
 For further reference for included techs, please consider the following sections:
 
