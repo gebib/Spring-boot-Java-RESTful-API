@@ -41,7 +41,6 @@ Sql Database connection configuration is in `application.properties` configurati
          "emailId": "johnmart@example.com"
      }
 ![Blank diagram](https://user-images.githubusercontent.com/9350798/147575757-5c6cf78e-a1d6-49da-800d-27db690e9ce1.png)
- ![image](https://user-images.githubusercontent.com/9350798/147561567-e09b8061-cb13-4cc5-802b-574de19bb7da.png)
 #### Reference Documentation
 For further reference for included techs, please consider the following sections:
 
