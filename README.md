@@ -11,8 +11,7 @@ List of: things regarding this project include:
 *  **MySQL** 
 *  **Intellij** 
 *  **Apache Tomcat/9.0.56** 
-*  **Java** 
-*  **Java** 
+*  **Hibernate** 
 
 
 ### Getting Started
@@ -40,7 +39,7 @@ Sql Database connection configuration is in `application.properties` configurati
          "lastName": "Martin",
          "emailId": "johnmart@example.com"
      }
-![Blank diagram](https://user-images.githubusercontent.com/9350798/147575757-5c6cf78e-a1d6-49da-800d-27db690e9ce1.png)
+
 #### Reference Documentation
 For further reference for included techs, please consider the following sections:
 
