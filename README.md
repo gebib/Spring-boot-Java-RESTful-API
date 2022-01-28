@@ -1,4 +1,4 @@
-# Java Spring-boot RESTfull API
+# Java Spring-boot RESTful API
 This is a spring boot RESTfull API that uses MySQL database for storage.
 
 
